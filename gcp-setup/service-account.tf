@@ -8,6 +8,7 @@ resource "google_service_account" "service_account" {
 // add needed role to service account
 resource "google_project_iam_member" "service_account_roles" {
   role       = "roles/owner"
+  project    = var.gcp_project_id
   member     = "serviceAccount:${google_service_account.service_account.email}"
   depends_on = [google_service_account.service_account]
 }
