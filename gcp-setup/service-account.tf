@@ -19,17 +19,17 @@ resource "google_service_account_key" "service_account_key" {
   depends_on         = [google_project_iam_member.service_account_roles]
 }
 
-resource "github_actions_secret" "gh_infra_sa_key" {
-  repository      = "EatOrders-Infrastructure"
-  secret_name     = "gcp"
-  plaintext_value = google_service_account_key.service_account_key.private_key
-  depends_on      = [google_service_account_key.service_account_key]
-}
+# resource "github_actions_secret" "gh_infra_sa_key" {
+#   repository      = "EatOrders-Infrastructure"
+#   secret_name     = "gcp"
+#   plaintext_value = google_service_account_key.service_account_key.private_key
+#   depends_on      = [google_service_account_key.service_account_key]
+# }
 
-resource "github_actions_secret" "gh_ms_sa_key" {
-  repository      = "EatOrders-Microservices"
-  secret_name     = "gcp"
-  plaintext_value = google_service_account_key.service_account_key.private_key
-  depends_on      = [google_service_account_key.service_account_key]
-}
+# resource "github_actions_secret" "gh_ms_sa_key" {
+#   repository      = "EatOrders-Microservices"
+#   secret_name     = "gcp"
+#   plaintext_value = google_service_account_key.service_account_key.private_key
+#   depends_on      = [google_service_account_key.service_account_key]
+# }
 
