@@ -19,7 +19,7 @@ jobs:
            credentials_json: ${{ secrets.gcp }}
   
       - name: setup terraform
-        uses: hashicorp/setup-terraform@v2.0.
+        uses: hashicorp/setup-terraform@v2.0.0
   
       - name: terraform format
         working-directory: ./gcp-setup
