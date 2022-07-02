@@ -36,3 +36,4 @@ jobs:
       - name: terraform apply
         working-directory: ./gcp-setup
         run: terraform apply -var="gh_token=${{ secrets.GITHUB_TOKEN }}" --auto-approve
+        
