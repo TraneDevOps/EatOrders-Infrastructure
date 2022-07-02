@@ -31,8 +31,8 @@ jobs:
   
       - name: terraform plan
         working-directory: ./gcp-setup
-        run: terraform plan
+        run: terraform plan -var=${{ secrets.GITHUB_TOKEN }}
   
       - name: terraform apply
         working-directory: ./gcp-setup
-        run: terraform apply --auto-approve
+        run: terraform apply -var=${{ secrets.GITHUB_TOKEN }} --auto-approve
