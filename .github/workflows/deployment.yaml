@@ -1,0 +1,37 @@
+name: infrastructure deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:  
+   terraform-infra:
+       name: infrastructure deployment
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+  
+          - name: gcp authentication
+            uses: google-github-actions/auth@v0.8.0
+            with:
+              credentials_json: ${{ secrets.gcp }}
+  
+         - name: setup terraform
+           uses: hashicorp/setup-terraform@v2.0.
+  
+         - name: terraform format
+           working-directory: ./gcp-setup
+           run: terraform fmt -check
+  
+         - name: terraform init
+           working-directory: ./gcp-setup
+           run: terraform init
+  
+         - name: terraform Plan
+           working-directory: ./gcp-setup
+           run: terraform plan
+  
+         - name: terraform apply
+           working-directory: ./gcp-setup
+           run: terraform apply --auto-approve
