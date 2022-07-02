@@ -14,11 +14,11 @@ variable "zone" {
   description = "Zone for everything"
 }
 
-variable "gh_token" {
-  type        = string
-  description = "GitHub_PAT"
-  sensitive   = true
-}
+# variable "gh_token" {
+#   type        = string
+#   description = "GitHub_PAT"
+#   sensitive   = true
+# }
 
 variable "service_account_name" {
   type        = string
