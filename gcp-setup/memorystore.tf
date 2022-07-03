@@ -2,7 +2,6 @@
 module "memorystore" {
   source  = "terraform-google-modules/memorystore/google"
   version = "4.3.0"
-  # insert the 11 required variables here
 
   name                    = var.redis_name
   project                 = var.gcp_project_id
@@ -17,8 +16,8 @@ module "memorystore" {
 # add redis ip as configMap in gke
 resource "helm_release" "redis_ip" {
   name    = "redis-ip"
-  chart   = "./helm/redis_ip"
   version = "2.1.2"
+  chart   = "./helm/redis_ip"
   set {
     name  = "redis_ip"
     value = module.memorystore.host

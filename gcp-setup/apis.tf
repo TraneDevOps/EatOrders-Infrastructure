@@ -13,6 +13,7 @@ resource "google_project_service" "servicenetworking_api" {
   project                    = var.gcp_project_id
   depends_on                 = [google_project_service.serviceusage_api]
 }
+
 resource "google_project_service" "compute_api" {
   service                    = "compute.googleapis.com"
   disable_on_destroy         = false
@@ -20,6 +21,7 @@ resource "google_project_service" "compute_api" {
   project                    = var.gcp_project_id
   depends_on                 = [google_project_service.serviceusage_api]
 }
+
 resource "google_project_service" "artifactregistry_api" {
   service                    = "artifactregistry.googleapis.comm"
   disable_on_destroy         = false

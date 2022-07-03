@@ -1,3 +1,4 @@
+# provider setup
 terraform {
   required_providers {
     google = {
@@ -9,7 +10,7 @@ terraform {
       version = "4.26.0"
     }
     helm = {
-      source = "hashicorp/helm"
+      source  = "hashicorp/helm"
       version = "2.6.0"
     }
   }
