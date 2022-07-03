@@ -1,5 +1,4 @@
 # Set up VPC peering for Cloud SQL
-
 locals {
   network_id = format("%s/%s/%s/%s/%s", "projects", var.gcp_project_id, "global", "networks", var.vpc_name)
 }

@@ -4,71 +4,94 @@ variable "gcp_project_id" {
   description = "GCP project name"
 }
 
+variable "location" {
+  type        = string
+  description = "location for everything"
+}
+
 variable "region" {
   type        = string
-  description = "Region for everything"
+  description = "region for everything"
 }
 
 variable "zone" {
   type        = string
-  description = "Zone for everything"
+  description = "zone for everything"
 }
 
 variable "gh_token" {
   type        = string
-  description = "GitHub_PAT"
+  description = "GitHub PAT"
   sensitive   = true
 }
 
 variable "service_account_name" {
   type        = string
-  description = "Name of service account"
+  description = "name of service account"
 }
 
 variable "cluster_name" {
   type        = string
-  description = "Name for the new GKE cluster"
+  description = "Nnme for the new GKE cluster"
 }
 
 # VPC
 variable "vpc_name" {
   type        = string
-  description = "Name for the VPC"
+  description = "name for the VPC"
 }
 
 variable "vpc_subnet_name" {
   type        = string
-  description = "Name for the VPC subnet"
+  description = "name for the VPC subnet"
 }
 
+# GKE cluster
 variable "gke_ip_range_name_pods" {
   type        = string
-  description = "Name for the alias IP range for GKE pods"
+  description = "name for the alias IP range for GKE pods"
 }
 
 variable "gke_ip_range_name_services" {
   type        = string
-  description = "Name for the alias IP range for GKE services"
+  description = "name for the alias IP range for GKE services"
 }
 
+# Redis
+variable "redis_name" {
+  type        = string
+  description = "name of the redis instance"
+  sensitive   = true
+}
 
 # Cloud SQL
 variable "db_instance_name" {
   type        = string
-  description = "Name of CLoud SQL db instance"
+  description = "name of Cloud SQL db instance"
 }
 
 variable "db_name" {
   type        = string
-  description = "Name of Cloud SQL database"
+  description = "name of Cloud SQL database"
 }
 
-variable "redis_name" {
+# buckets
+variable "microservices_bucket" {
   type        = string
-  description = "Name of the redis instance"
-  sensitive   = true
+  description = "name of the Terraform microservices bucket"
+}
+#GitHub repo secrets
+variable "gh_microservices_repo" {
+  type        = string
+  description = "name of the microservices GitHub repo"
 }
 
+variable "gh_infrastructure_repo" {
+  type        = string
+  description = "name of the infrastructure GitHub repo"
+}
 
-
-
+variable "gh_secret_name" {
+  type        = string
+  description = "name of the GitHub secret to enter GCP"
+}

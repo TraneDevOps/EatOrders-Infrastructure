@@ -1,5 +1,5 @@
 
-# # Set up GKE cluster
+# Set up GKE cluster
 module "gke-cluster" {
   source  = "terraform-google-modules/kubernetes-engine/google"
   version = "~> 21.0.0"

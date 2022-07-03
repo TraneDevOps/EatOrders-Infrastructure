@@ -20,8 +20,8 @@ resource "google_project_service" "compute_api" {
   project                    = var.gcp_project_id
   depends_on                 = [google_project_service.serviceusage_api]
 }
-resource "google_project_service" "container_api" {
-  service                    = "container.googleapis.com"
+resource "google_project_service" "artifactregistry_api" {
+  service                    = "artifactregistry.googleapis.comm"
   disable_on_destroy         = false
   disable_dependent_services = false
   project                    = var.gcp_project_id
@@ -33,7 +33,7 @@ resource "google_project_service" "iam_api" {
   disable_on_destroy         = false
   disable_dependent_services = false
   project                    = var.gcp_project_id
-  depends_on                 = [google_project_service.container_api]
+  depends_on                 = [google_project_service.artifactregistry_api]
 }
 
 resource "google_project_service" "sql_api" {

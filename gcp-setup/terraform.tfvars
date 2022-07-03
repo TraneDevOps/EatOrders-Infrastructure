@@ -1,8 +1,9 @@
 # General
-gcp_project_id       = "eatorders1"
-region               = "europe-west3"
-zone                 = "europe-west3-a"
-service_account_name = "terraform-sa"
+gcp_project_id          = "eatorders1"
+location                = "eu"
+region                  = "europe-west3"
+zone                    = "europe-west3-a"
+service_account_name    = "gha-sa"
 
 # VPC
 vpc_name                   = "vpc"
@@ -17,8 +18,13 @@ cluster_name = "cluster"
 redis_name = "redis-queue"
 
 # Cloud SQL
-db_instance_name = "eat-orders2"
+db_instance_name = "eat-orders3"
 db_name          = "eat_orders"
-#db_password         =
 
-#gh_token =
+#buckets
+microservices_bucket     = "tf_microservice"
+
+#GitHub repo secrets
+gh_infrastructure_repo  = "EatOrders-Infrastructure"
+gh_microservices_repo    = "EatOrders-Microservices"
+gh_secret_name          = "gcp"

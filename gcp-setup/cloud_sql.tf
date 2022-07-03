@@ -1,8 +1,8 @@
 
-# # Set up Cloud SQL
+# set up Cloud SQL
 module "sql-db" {
   source  = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
-  version = "~> 8.0.0"
+  version = "~> 11.0.0"
 
   project_id          = var.gcp_project_id
   name                = var.db_instance_name
@@ -22,6 +22,7 @@ module "sql-db" {
     private_network     = format("%s/%s/%s/%s/%s", "projects", var.gcp_project_id, "global", "networks", var.vpc_name)
     require_ssl         = false
     authorized_networks = []
+    allocated_ip_range  = null
   }
   db_name        = var.db_name
   database_flags = [{ name = "cloudsql.iam_authentication", value = "on" }]

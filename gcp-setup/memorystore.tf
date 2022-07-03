@@ -1,5 +1,9 @@
+# set up redis database
 module "memorystore" {
-  source                  = "terraform-google-modules/memorystore/google"
+  source  = "terraform-google-modules/memorystore/google"
+  version = "4.3.0"
+  # insert the 11 required variables here
+
   name                    = var.redis_name
   project                 = var.gcp_project_id
   memory_size_gb          = 1
@@ -9,17 +13,8 @@ module "memorystore" {
   transit_encryption_mode = "DISABLED"
   depends_on              = [google_project_service.enabled_apis]
 }
-data "google_client_config" "default" {}
 
-
-provider "helm" {
-  kubernetes {
-    host                   = "https://${module.gke-cluster.endpoint}"
-    token                  = data.google_client_config.default.access_token
-    cluster_ca_certificate = base64decode(module.gke-cluster.ca_certificate)
-  }
-}
-
+# add redis ip as configMap in gke
 resource "helm_release" "redis_ip" {
   name    = "redis-ip"
   chart   = "./helm/redis_ip"
