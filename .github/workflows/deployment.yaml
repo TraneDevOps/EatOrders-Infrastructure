@@ -27,13 +27,13 @@ jobs:
   
       - name: terraform init
         working-directory: ./gcp-setup
-        run: terraform init -upgrade
+        run: terraform init
   
       - name: terraform plan
         working-directory: ./gcp-setup
-        run: terraform plan -var="gh_token=${{ secrets.GITHUB_TOKEN }}"
+        run: terraform plan -var="gh_token=${{ secrets.GITHUB_PAT }}"
   
       - name: terraform apply
         working-directory: ./gcp-setup
-        run: terraform apply -var="gh_token=${{ secrets.GITHUB_TOKEN }}" --auto-approve
+        run: terraform apply -var="gh_token=${{ secrets.GITHUB_PAT }}" --auto-approve
         
