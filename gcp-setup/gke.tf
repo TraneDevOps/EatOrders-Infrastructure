@@ -15,23 +15,23 @@ module "gke-cluster" {
   remove_default_node_pool = true
   grant_registry_access    = true
   depends_on               = [module.vpc, google_project_service.enabled_apis]
-  node_pools_oauth_scopes = {
-    "all" = [
-      // "View and manage your data across Google Cloud Platform services"
-      "https://www.googleapis.com/auth/cloud-platform",
-      // "View and manage your Google Compute Engine resources"
-      "https://www.googleapis.com/auth/compute",
-      // "Manage your data and permissions in Google Cloud Storage"
-      "https://www.googleapis.com/auth/devstorage.full_control",
-      // "Manage your Google API service configuration"
-      "https://www.googleapis.com/auth/service.management",
-      // "Admission control and telemetry reporting for services integrated with Service Infrastructure"
-      "https://www.googleapis.com/auth/servicecontrol",
-      // "Submit log data for your projects"
-      "https://www.googleapis.com/auth/logging.write",
-      // "View and write monitoring data for all your Google and third-party Cloud and API projects"
-      "https://www.googleapis.com/auth/monitoring",
-    ]
-  }
+  # node_pools_oauth_scopes = {
+  #   "all" = [
+  #     // "View and manage your data across Google Cloud Platform services"
+  #     "https://www.googleapis.com/auth/cloud-platform",
+  #     // "View and manage your Google Compute Engine resources"
+  #     "https://www.googleapis.com/auth/compute",
+  #     // "Manage your data and permissions in Google Cloud Storage"
+  #     "https://www.googleapis.com/auth/devstorage.full_control",
+  #     // "Manage your Google API service configuration"
+  #     "https://www.googleapis.com/auth/service.management",
+  #     // "Admission control and telemetry reporting for services integrated with Service Infrastructure"
+  #     "https://www.googleapis.com/auth/servicecontrol",
+  #     // "Submit log data for your projects"
+  #     "https://www.googleapis.com/auth/logging.write",
+  #     // "View and write monitoring data for all your Google and third-party Cloud and API projects"
+  #     "https://www.googleapis.com/auth/monitoring",
+  #   ]
+  # }
 
 }
