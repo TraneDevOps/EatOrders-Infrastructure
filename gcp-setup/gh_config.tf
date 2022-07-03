@@ -1,8 +1,4 @@
 # add service-accounts key as GitHub secrets in both repos
-data "github_actions_public_key" "repo_public_key" {
-  repository = var.gh_infrastructure_repo
-}
-
 resource "github_actions_secret" "gh_infra_sa_key" {
   repository      = var.gh_infrastructure_repo
   secret_name     = var.gh_secret_name
