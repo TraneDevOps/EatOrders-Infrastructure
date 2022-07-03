@@ -25,8 +25,8 @@ provider "google" {
 }
 
 provider "github" {
-  token        = var.gh_token
-  owner        = "TraneDevOps"
+  token = var.gh_token
+  owner = "TraneDevOps"
 }
 
 data "google_client_config" "default" {}
