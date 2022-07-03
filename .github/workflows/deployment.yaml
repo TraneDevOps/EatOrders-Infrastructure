@@ -27,7 +27,7 @@ jobs:
   
       - name: terraform init
         working-directory: ./gcp-setup
-        run: terraform init
+        run: terraform init -upgrade
   
       - name: terraform plan
         working-directory: ./gcp-setup
