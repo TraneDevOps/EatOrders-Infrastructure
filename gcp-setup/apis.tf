@@ -23,7 +23,7 @@ resource "google_project_service" "compute_api" {
 }
 
 resource "google_project_service" "artifactregistry_api" {
-  service                    = "artifactregistry.googleapis.comm"
+  service                    = "artifactregistry.googleapis.com"
   disable_on_destroy         = false
   disable_dependent_services = false
   project                    = var.gcp_project_id
