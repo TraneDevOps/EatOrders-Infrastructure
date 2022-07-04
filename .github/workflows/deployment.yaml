@@ -22,18 +22,18 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.0
   
       - name: terraform format
-        working-directory: ./gcp-setup
+        working-directory: ./gcp_setup
         run: terraform fmt -check
   
       - name: terraform init
-        working-directory: ./gcp-setup
+        working-directory: ./gcp_setup
         run: terraform init
   
       - name: terraform plan
-        working-directory: ./gcp-setup
+        working-directory: ./gcp_setup
         run: terraform plan -var="gh_token=${{ secrets.GH_PAT }}"
   
       - name: terraform apply
-        working-directory: ./gcp-setup
+        working-directory: ./gcp_setup
         run: terraform apply -var="gh_token=${{ secrets.GH_PAT }}" --auto-approve
         
