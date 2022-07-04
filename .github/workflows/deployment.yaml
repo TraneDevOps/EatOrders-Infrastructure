@@ -29,10 +29,6 @@ jobs:
         working-directory: ./gcp_setup
         run: terraform init
   
-      - name: terraform plan
-        working-directory: ./gcp_setup
-        run: terraform plan -var="gh_token=${{ secrets.GH_PAT }}"
-  
       - name: terraform apply
         working-directory: ./gcp_setup
         run: terraform apply -var="gh_token=${{ secrets.GH_PAT }}" --auto-approve

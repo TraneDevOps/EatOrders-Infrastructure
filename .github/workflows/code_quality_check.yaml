@@ -45,4 +45,4 @@ jobs:
   
       - name: terraform plan
         working-directory: ./gcp_setup
-        run: terraform plan -var="gh_token=${{ secrets.GH_PAT }}"
+        run: terraform plan  -lock=false -var="gh_token=${{ secrets.GH_PAT }}"
