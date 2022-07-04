@@ -22,7 +22,7 @@ db_instance_name = "eat-orders4"
 db_name          = "eat_orders"
 
 #buckets
-microservices_bucket = "tf_microservice"
+microservices_bucket = "tf_microservices"
 
 #GitHub repo secrets
 gh_infrastructure_repo = "EatOrders-Infrastructure"
