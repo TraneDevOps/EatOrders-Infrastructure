@@ -1,7 +1,7 @@
 # set up redis database
 module "memorystore" {
   source  = "terraform-google-modules/memorystore/google"
-  version = "4.3.0"
+  version = "~> 4.3.0"
 
   name                    = var.redis_name
   project                 = var.gcp_project_id

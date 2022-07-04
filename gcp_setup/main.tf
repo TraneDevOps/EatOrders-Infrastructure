@@ -3,15 +3,15 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "4.25.0"
+      version = "~> 4.25.0"
     }
     github = {
       source  = "integrations/github"
-      version = "4.26.1"
+      version = "~> 4.26.1"
     }
     helm = {
       source  = "hashicorp/helm"
-      version = "2.6.0"
+      version = "~> 2.6.0"
     }
   }
   backend "gcs" {
