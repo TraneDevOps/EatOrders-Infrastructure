@@ -30,7 +30,7 @@ jobs:
       - name: gcp authentication
         uses: google-github-actions/auth@v0.8.0
         with:
-          credentials_json: ${{ secrets.gcp }}
+          credentials_json: ${{ secrets.GCP }}
   
       - name: setup terraform
         uses: hashicorp/setup-terraform@v2.0.0

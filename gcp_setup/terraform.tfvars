@@ -27,5 +27,5 @@ microservices_bucket = "tf_microservice"
 #GitHub repo secrets
 gh_infrastructure_repo = "EatOrders-Infrastructure"
 gh_microservices_repo  = "EatOrders-Microservices"
-gh_secret_name         = "gcp"
+gh_secret_name         = "gha-sa"
 #x
