@@ -18,7 +18,7 @@ cluster_name = "cluster"
 redis_name = "redis-queue"
 
 # Cloud SQL
-db_instance_name = "eat_orders4"
+db_instance_name = "eat-orders4"
 db_name          = "eat_orders"
 
 #buckets

@@ -61,7 +61,6 @@ variable "gke_ip_range_name_services" {
 variable "redis_name" {
   type        = string
   description = "name of the redis instance"
-  sensitive   = true
 }
 
 # Cloud SQL
