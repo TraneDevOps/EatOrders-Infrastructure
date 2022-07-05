@@ -7,15 +7,15 @@ service_account_name = "gha-sa"
 
 # VPC
 vpc_name                   = "vpc"
-vpc_subnet_name            = "vpc_subnet"
-gke_ip_range_name_pods     = "cluster_subnet_pods"
-gke_ip_range_name_services = "cluster_subnet_services"
+vpc_subnet_name            = "vpc-subnet"
+gke_ip_range_name_pods     = "cluster-subnet-pods"
+gke_ip_range_name_services = "cluster-subnet-services"
 
 # GKE cluster
 cluster_name = "cluster"
 
 # Redis
-redis_name = "redis_queue"
+redis_name = "redis-queue"
 
 # Cloud SQL
 db_instance_name = "eat_orders4"
