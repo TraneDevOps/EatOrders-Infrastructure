@@ -5,8 +5,8 @@ zone                 = "europe-west3-a"
 service_account_name = "gha-sa"
 
 # VPC
-vpc_name                   = "vpc"
-vpc_subnet_name            = "vpc-subnet"
+vpc_name                   = "one-vpc-for-all"
+vpc_subnet_name            = "one-vpc-for-all-subnet"
 gke_ip_range_name_pods     = "cluster-subnet-pods"
 gke_ip_range_name_services = "cluster-subnet-services"
 
@@ -17,7 +17,7 @@ cluster_name = "cluster"
 redis_name = "redis-queue"
 
 # Cloud SQL
-db_instance_name = "eat-orders10"
+db_instance_name = "eat-orders11" #change
 db_name          = "eat-orders"
 
 
