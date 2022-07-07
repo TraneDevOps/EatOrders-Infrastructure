@@ -15,7 +15,7 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "tf_infrastructure"
+    prefix = "tf_infrastructure"
   }
 }
 
