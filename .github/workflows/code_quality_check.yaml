@@ -1,6 +1,9 @@
 name: code quality check
 on: [push]
 
+env:
+  PROJECT_ID: eatorders1-dev
+
 jobs:
   super-linter:
     name: lint source code
@@ -40,7 +43,7 @@ jobs:
   
       - name: terraform init
         working-directory: ./gcp_setup
-        run: terraform init
+        run: terraform init -backend-config="bucket=tf-infrastructure-$PROJECT_ID"
   
       - name: terraform plan
         working-directory: ./gcp_setup

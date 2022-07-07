@@ -14,9 +14,7 @@ terraform {
       version = "~> 2.6.0"
     }
   }
-  backend "gcs" {
-    prefix = "tf_infrastructure"
-  }
+  backend "gcs" {}
 }
 
 provider "google" {

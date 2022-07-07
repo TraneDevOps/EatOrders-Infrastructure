@@ -10,6 +10,9 @@ concurrency:
   group: infrastructure test deployment
   cancel-in-progress: false
 
+env:
+  PROJECT_ID: eatorders1-test
+
 jobs:  
   terraform-infra:
     name: infrastructure test deployment
