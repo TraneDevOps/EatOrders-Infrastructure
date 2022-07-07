@@ -79,6 +79,13 @@ variable "microservices_bucket" {
   type        = string
   description = "name of the Terraform microservices bucket"
 }
+
+# Artifact registry repo
+variable "artifact_repo_name" {
+  type        = string
+  description = "name of the Artifact registry repo for the microservices"
+}
+
 #GitHub repo secrets
 variable "gh_microservices_repo" {
   type        = string

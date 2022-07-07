@@ -16,6 +16,9 @@ cluster_name = "cluster"
 # Redis
 redis_name = "redis-queue"
 
+# Artifact registry 
+artifact_repo_name = "microservices"
+
 # Cloud SQL
 db_instance_name = "eat-orders11" #change
 db_name          = "eat-orders"
