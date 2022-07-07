@@ -52,5 +52,4 @@ jobs:
               -var-file=./values/general.tfvars \
               -var-file=./values/dev.tfvars \
               -var="gh_token=${{ secrets.GH_PAT }}" \
-              -lock=false \
-              --auto-approve
+              -lock=false

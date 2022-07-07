@@ -14,7 +14,7 @@ env:
   PROJECT_ID: eatorders1-test
 
 jobs:  
-  terraform-infra:
+  on-success:
     name: infrastructure test deployment
     runs-on: ubuntu-latest
     steps:
