@@ -12,14 +12,3 @@ module "memorystore" {
   transit_encryption_mode = "DISABLED"
   depends_on              = [google_project_service.enabled_apis]
 }
-
-# add redis ip as configMap in gke
-resource "helm_release" "redis_ip" {
-  name    = "redis-ip"
-  version = "2.1.2"
-  chart   = "./helm/redis_ip"
-  set {
-    name  = "redis_ip"
-    value = module.memorystore.host
-  }
-}

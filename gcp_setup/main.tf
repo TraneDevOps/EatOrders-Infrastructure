@@ -16,7 +16,6 @@ terraform {
   }
   backend "gcs" {
     bucket = "tf_infrastructure"
-    prefix = "gcp_setup"
   }
 }
 
@@ -27,13 +26,3 @@ provider "google" {
 provider "github" {
   token = var.gh_token
 }
-
-data "google_client_config" "default" {}
-provider "helm" {
-  kubernetes {
-    host                   = "https://${module.gke-cluster.endpoint}"
-    token                  = data.google_client_config.default.access_token
-    cluster_ca_certificate = base64decode(module.gke-cluster.ca_certificate)
-  }
-}
-#x

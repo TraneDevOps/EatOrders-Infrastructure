@@ -14,7 +14,6 @@ jobs:
         env:
           VALIDATE_DOCKERFILE_HADOLINT: true
           VALIDATE_YAML: true
-          VALIDATE_GO: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_TERRAFORM_TFLINT: true
           VALIDATE_TERRAFORM_TERRASCAN: true

@@ -18,8 +18,8 @@ cluster_name = "cluster"
 redis_name = "redis-queue"
 
 # Cloud SQL
-db_instance_name = "eat-orders5"
-db_name          = "eat_orders"
+db_instance_name = "eat-orders7"
+db_name          = "eat-orders"
 
 #buckets
 microservices_bucket = "tf_microservices"
