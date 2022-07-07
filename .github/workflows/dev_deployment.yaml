@@ -14,8 +14,9 @@ env:
   PROJECT_ID: eatorders1-dev
 
 jobs:  
-  on-success:
+  infrastructure_dev_deployment:
     name: infrastructure dev deployment
+    if: ${{github.event.workflow_run.conclusion == 'success'}}
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
