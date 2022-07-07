@@ -1,13 +1,18 @@
-name: infrastructure deployment
+name: infrastructure dev deployment
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [code quality check]
+    types: [completed]
+
+# only one worklow at a time
+concurrency:
+  group: infrastructure dev deployment
+  cancel-in-progress: false
 
 jobs:  
   terraform-infra:
-    name: infrastructure deployment
+    name: infrastructure dev deployment
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -16,7 +21,7 @@ jobs:
       - name: gcp authentication
         uses: google-github-actions/auth@v0.8.0
         with:
-          credentials_json: ${{ secrets.GCP }}
+          credentials_json: ${{ secrets.DEV_GCP }}
   
       - name: setup terraform
         uses: hashicorp/setup-terraform@v2.0.0
@@ -31,5 +36,9 @@ jobs:
   
       - name: terraform apply
         working-directory: ./gcp_setup
-        run: terraform apply -var="gh_token=${{ secrets.GH_PAT }}" --auto-approve
-        
+        run: |
+              terraform apply \
+              -var-file=./values/general.tfvars \
+              -var-file=./values/dev.tfvars \
+              -var="gh_token=${{ secrets.GH_PAT }}" \
+              --auto-approve
