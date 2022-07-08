@@ -1,6 +1,7 @@
 name: infrastructure dev deployment
 
 on:
+  workflow_dispatch: # run manually by GitHub GUI
   workflow_run:
     workflows: [code quality check]
     types: [completed]
@@ -9,9 +10,6 @@ on:
 concurrency:
   group: infrastructure dev deployment
   cancel-in-progress: false
-
-env:
-  PROJECT_ID: eatorders1-dev
 
 jobs:  
   infrastructure_dev_deployment:
@@ -36,7 +34,7 @@ jobs:
   
       - name: terraform init
         working-directory: ./gcp_setup
-        run: terraform init -backend-config="bucket=tf-infrastructure-$PROJECT_ID"
+        run: terraform init -backend-config="bucket=tf-infrastructure-${{ env.GCP_PROJECT }}"
   
       - name: terraform apply
         working-directory: ./gcp_setup
