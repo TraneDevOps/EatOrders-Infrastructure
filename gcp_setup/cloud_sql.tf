@@ -30,7 +30,7 @@ module "sql-db" {
 }
 
 resource "google_sql_user" "sql_iam_user" {
-  name            = format("%s@%s.iam", var.service_account_name, var.gcp_project_id)
+  name            = format("%s@%s.iam", var.microservices_service_account_name, var.gcp_project_id)
   instance        = var.db_instance_name
   type            = "CLOUD_IAM_SERVICE_ACCOUNT"
   project         = var.gcp_project_id

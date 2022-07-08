@@ -1,8 +1,9 @@
 # General
-location             = "eu"
-region               = "europe-west3"
-zone                 = "europe-west3-a"
-service_account_name = "gha-sa"
+location                            = "eu"
+region                              = "europe-west3"
+zone                                = "europe-west3-a"
+gha_service_account_name            = "gha-sa"
+microservices_service_account_name  = "microservices-sa"
 
 # VPC
 vpc_name                   = "one-vpc-for-all"

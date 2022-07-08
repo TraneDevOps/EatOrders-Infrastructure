@@ -25,9 +25,14 @@ variable "gh_token" {
   sensitive   = true
 }
 
-variable "service_account_name" {
+variable "gha_service_account_name" {
   type        = string
-  description = "name of service account"
+  description = "name of service account for GitHub Actions"
+}
+
+variable "microservices_service_account_name" {
+  type        = string
+  description = "name of service account for microservices"
 }
 
 variable "cluster_name" {
