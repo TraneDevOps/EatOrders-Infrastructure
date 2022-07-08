@@ -31,15 +31,8 @@ resource "google_service_account" "microservices_service_account" {
 
 #  add needed role to microservices service account
 resource "google_project_iam_member" "microservices_service_account_roles" {
-  role       = "roles/owner"
+  role       = "roles/cloudsql.admin"
   project    = var.gcp_project_id
   member     = "serviceAccount:${google_service_account.microservices_service_account.email}"
   depends_on = [google_service_account.microservices_service_account]
-}
-
-# create key for microservices service account
-resource "google_service_account_key" "microservices_service_account_key" {
-  service_account_id = var.microservices_service_account_name
-  public_key_type    = "TYPE_X509_PEM_FILE"
-  depends_on         = [google_project_iam_member.microservices_service_account_roles]
 }
