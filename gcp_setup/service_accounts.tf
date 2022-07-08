@@ -10,7 +10,7 @@ resource "google_service_account" "gha_service_account" {
 resource "google_project_iam_member" "gha_service_account_roles" {
   role       = "roles/editor"
   project    = var.gcp_project_id
-  member     = "serviceAccount:${google_service_account.service_account.email}"
+  member     = "serviceAccount:${gha_google_service_account.gha_service_account.email}"
   depends_on = [google_service_account.gha_service_account]
 }
 
@@ -35,7 +35,7 @@ resource "google_project_iam_member" "microservices_service_account_roles" {
   role       = "roles/cloudsql.editor"
   project    = var.gcp_project_id
   member     = "serviceAccount:${google_service_account.microservices_service_account.email}"
-  depends_on = [google_service_account.service_account]
+  depends_on = [google_service_account.microservices_service_account]
 }
 
 # create key for microservices service account
