@@ -8,7 +8,7 @@ resource "google_service_account" "gha_service_account" {
 
 #  add needed role to GHA service account
 resource "google_project_iam_member" "gha_service_account_roles" {
-  role       = "roles/editor"
+  role       = "roles/owner"
   project    = var.gcp_project_id
   member     = "serviceAccount:${google_service_account.gha_service_account.email}"
   depends_on = [google_service_account.gha_service_account]
@@ -21,7 +21,6 @@ resource "google_service_account_key" "gha_service_account_key" {
   depends_on         = [google_project_iam_member.gha_service_account_roles]
 }
 
-
 ####service account for microservices######
 # create service account for microservices
 resource "google_service_account" "microservices_service_account" {
@@ -32,7 +31,7 @@ resource "google_service_account" "microservices_service_account" {
 
 #  add needed role to microservices service account
 resource "google_project_iam_member" "microservices_service_account_roles" {
-  role       = "roles/cloudsql.editor"
+  role       = "roles/owner"
   project    = var.gcp_project_id
   member     = "serviceAccount:${google_service_account.microservices_service_account.email}"
   depends_on = [google_service_account.microservices_service_account]
