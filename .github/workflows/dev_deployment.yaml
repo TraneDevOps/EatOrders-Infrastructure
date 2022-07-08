@@ -13,7 +13,7 @@ concurrency:
 
 jobs:  
   infrastructure_dev_deployment:
-    name: infrastructure dev deployment
+    name: infrastructure dev deploymentx
     if: ${{github.event.workflow_run.conclusion == 'success'}}
     runs-on: ubuntu-latest
     steps:
