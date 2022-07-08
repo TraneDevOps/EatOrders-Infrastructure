@@ -35,6 +35,6 @@ resource "google_sql_user" "sql_iam_user" {
   type            = "CLOUD_IAM_SERVICE_ACCOUNT"
   project         = var.gcp_project_id
   deletion_policy = "ABANDON"
-  depends_on      = [module.sql-db, google_service_account_key.service_account_key]
+  depends_on      = [module.sql-db, google_service_account_key.microservices_service_account_key]
 }
 
