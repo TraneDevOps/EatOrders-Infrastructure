@@ -15,7 +15,7 @@ resource "google_project_iam_member" "gha_service_account_roles" {
 }
 
 # create key for GHA service account
-resource "google_service_account_key" "fha_service_account_key" {
+resource "google_service_account_key" "gha_service_account_key" {
   service_account_id = var.gha_service_account_name
   public_key_type    = "TYPE_X509_PEM_FILE"
   depends_on         = [google_project_iam_member.gha_service_account_roles]
