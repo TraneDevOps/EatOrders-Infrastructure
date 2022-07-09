@@ -29,12 +29,11 @@ module "sql-db" {
   depends_on     = [module.vpc, google_service_networking_connection.private_vpc_connection, google_project_service.enabled_apis]
 }
 
-resource "google_sql_user" "sql_iam_user" {
-  name            = format("%s@%s.iam", var.microservices_service_account_name, var.gcp_project_id)
+resource "google_sql_user" "cloud_sql_proxy_iam_user" {
+  name            = format("%s@%s.iam", var.cloud_sql_proxy_service_account_name, var.gcp_project_id)
   instance        = var.db_instance_name
   type            = "CLOUD_IAM_SERVICE_ACCOUNT"
   project         = var.gcp_project_id
   deletion_policy = "ABANDON"
-  depends_on      = [module.sql-db, google_service_account.microservices_service_account]
+  depends_on      = [module.sql-db, google_service_account.cloud_sql_proxy_service_account]
 }
-

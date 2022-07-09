@@ -30,9 +30,9 @@ variable "gha_service_account_name" {
   description = "name of service account for GitHub Actions"
 }
 
-variable "microservices_service_account_name" {
+variable "cloud_sql_proxy_service_account_name" {
   type        = string
-  description = "name of service account for microservices"
+  description = "name of service account for cloud sql proxy"
 }
 
 variable "cluster_name" {

@@ -1,4 +1,4 @@
-####service account for GHA######
+####service account for GHA####
 # create service account for GHA
 resource "google_service_account" "gha_service_account" {
   account_id   = var.gha_service_account_name
@@ -21,18 +21,18 @@ resource "google_service_account_key" "gha_service_account_key" {
   depends_on         = [google_project_iam_member.gha_service_account_roles]
 }
 
-####service account for microservices######
-# create service account for microservices
-resource "google_service_account" "microservices_service_account" {
-  account_id   = var.microservices_service_account_name
-  display_name = "${var.microservices_service_account_name} SA"
+####service account for cloud sql with cloud admin role#####
+# create service account for receiver-microservice
+resource "google_service_account" "cloud_sql_proxy_service_account" {
+  account_id   = var.cloud_sql_proxy_service_account_name
+  display_name = "${var.cloud_sql_proxy_service_account_name} SA"
   depends_on   = [google_project_service.enabled_apis]
 }
 
-#  add needed role to microservices service account
-resource "google_project_iam_member" "microservices_service_account_roles" {
+#  add needed role to receiver-microservice service account
+resource "google_project_iam_member" "cloud_sql_proxy_service_account_roles" {
   role       = "roles/cloudsql.admin"
   project    = var.gcp_project_id
-  member     = "serviceAccount:${google_service_account.microservices_service_account.email}"
-  depends_on = [google_service_account.microservices_service_account]
+  member     = "serviceAccount:${google_service_account.cloud_sql_proxy_service_account.email}"
+  depends_on = [google_service_account.cloud_sql_proxy_service_account]
 }

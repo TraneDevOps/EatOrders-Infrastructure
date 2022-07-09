@@ -3,7 +3,7 @@ location                            = "eu"
 region                              = "europe-west3"
 zone                                = "europe-west3-a"
 gha_service_account_name            = "gha-sa"
-microservices_service_account_name  = "microservices-sa"
+cloud_sql_proxy_service_account_name  = "cloud-sql-proxy-sa"
 
 # VPC
 vpc_name                   = "one-vpc-for-all"
@@ -21,7 +21,7 @@ redis_name = "redis-queue"
 artifact_repo_name = "microservices"
 
 # Cloud SQL
-db_instance_name = "eat-orders13" #change
+db_instance_name = "eat-orders14" #change
 db_name          = "eat-orders"
 
 
