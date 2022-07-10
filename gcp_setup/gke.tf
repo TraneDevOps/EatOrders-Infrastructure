@@ -13,6 +13,6 @@ module "gke-cluster" {
   ip_range_services        = var.gke_ip_range_name_services
   create_service_account   = true
   remove_default_node_pool = true
-  grant_registry_access    = true 
+  grant_registry_access    = true
   depends_on               = [module.vpc, google_project_service.enabled_apis]
 }
