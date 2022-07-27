@@ -1,5 +1,4 @@
-name: infrastructure dev deployment
-
+name: infrastructure dev environment
 on:
   workflow_dispatch: # run manually by GitHub GUI
   workflow_run:
@@ -8,7 +7,7 @@ on:
 
 # only one worklow at a time
 concurrency:
-  group: infrastructure dev deployment
+  group: infrastructure dev environment
   cancel-in-progress: false
 
 jobs:  
