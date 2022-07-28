@@ -26,5 +26,4 @@ db_name          = "eat-orders"
 
 
 #GitHub repo secrets
-gh_infrastructure_repo = "EatOrders-Infrastructure"
 gh_microservices_repo  = "EatOrders-Microservices"

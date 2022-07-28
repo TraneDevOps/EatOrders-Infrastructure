@@ -97,11 +97,6 @@ variable "gh_microservices_repo" {
   description = "name of the microservices GitHub repo"
 }
 
-variable "gh_infrastructure_repo" {
-  type        = string
-  description = "name of the infrastructure GitHub repo"
-}
-
 variable "gh_secret_name" {
   type        = string
   description = "name of the GitHub secret to enter GCP"

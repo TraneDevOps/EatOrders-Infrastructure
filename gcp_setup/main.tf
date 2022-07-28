@@ -31,4 +31,5 @@ provider "google" {
 
 provider "github" {
   token = var.gh_token
+  owner = "TraneDevOps"
 }
